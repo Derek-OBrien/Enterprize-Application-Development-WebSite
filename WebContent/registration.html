@@ -1,0 +1,122 @@
+<!-- DEREK O BRIEN K00105572 -->
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Game Fleadh-Register</title>
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+<script>
+	/*jQuery to control display/enableing of form fields depending on option selected */
+	$(document).ready(
+			function() {
+				$('#1 ,#2 ,#3 ').hide(); //Hide All Fields
+				
+				/*Display/Enable selected option*/
+				$("#generalAdmissionList").change(
+						function() {
+							var selected = $("#generalAdmissionList option:selected").val(); //Get Selected Value	
+							$('#1 ,#2 ,#3 ').hide(); //Hide Fields
+							$('#1 ,#2 ,#3 ').find('input, textarea, button, select').prop('disabled', true);//Disable All Fields
+							
+
+							$('#' + selected).find('input, textarea, button, select').prop('disabled', false);//Enable Fields in Selected Div
+							$('#' + selected).show();// Show Selected Div 
+						});
+			});
+
+</script>
+
+</head>
+
+<body>
+	<section class="container">
+		<header>
+			<img src="assets/GamesFleadhBanner.png" width=60% height="100" alt="Games Fleadh Banner / logo" style="padding-left: 20%">
+			<!--Navigation Bar-->
+			<div id="nav">
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="registration.html">Registration</a></li>
+					<li><a href="compete.html">Compete</a></li>
+					<li><a href="gamepro.html">Games Pro</a></li>
+					<li><a href="awards.html">Awards</a></li>
+					<li><a href="about.html">About</a></li>
+					<li><a href="sponsors.html">Sponsors</a></li>
+					<li><a href="adminlogin.html">Admin</a></li>
+				</ul>
+			</div>
+			<!-- END NAV DIV-->
+		</header>
+
+		<!-- Content -->
+		<section class="content">
+			<div id="heading"> <h3>Registration</h3> </div>
+			<!--END HEADING DIV-->
+			<form action="registration" method="POST" class="form">
+				<select name="typeofticket" size="1" id="generalAdmissionList" class="selList" required>
+					<option value="" >Choose A Option</option>
+					<option value="1">Single Admission</option>
+					<option value="2">Group Admission</option>
+					<option value="3">Compete</option>
+				</select> <br>
+
+				<div id="1"><!--for Single Admission-->
+					<input type="text" name="firstname" placeholder="First Name"required> <br> 
+					<input type="text" name="lastname" placeholder="Last Name" required> <br> 
+					<input type="email" name="email" placeholder="Email" required> <br>
+				</div>
+				<!-- END DIV 1-->
+
+				<div id="2"><!--For Group Admission-->
+					<input type="text" name="groupname" placeholder="Group Name"required> <br> 
+					<input type="text" name="number" placeholder="Number Attending" required> <br> 
+					<input type="text" name="supervisor" placeholder="Supervisor Name" required> <br> 
+					<input type="email" name="groupemail"placeholder="Email" required> <br>
+				</div>
+				<!-- END DIV 2-->
+
+				<div id="3"><!--For Competition-->
+					<select name="competition" size="1" class="selList" required>
+						<option value="" >Choose A Option</option>
+						<option value="1">Robocode</option>
+						<option value="2">DirectX</option>
+						<option value="3">Game Studio Ireland</option>
+					</select> <br> 
+					<input type="text" name="teamname"placeholder="Team Name" required> <br> 
+					<input type="text" name="mentorname" placeholder="Mentor Name" required> <br> 
+					<input type="text" name="collegename" placeholder="College Name" required> <br> 
+					<input type="text" name="memberone" placeholder="Team Member 1"> <br> 
+					<input type="text" name="membertwo" placeholder="Team Member 2"> <br> 
+					<input type="text" name="memberthree" placeholder="Team Member 3"> <br>
+					<input type="email" name="teamemail" placeholder="Email" required> <br>
+				</div>
+				<!--END DIV 3-->
+
+				<input type="submit" value="Register" id="submitBtn"> <br>
+			</form>
+			
+			<section>
+				<p>*Please note that students will not be supervised by any
+					event staff on the day. If supervision is required, this will be
+					the responsibility of each school
+				</p>
+				<p>** ID is required for Gaming Tournament on the day as some
+					games are over 18
+				</p>
+			</section>
+		</section>
+		<!-- end .content -->
+
+		<!-- Footer -->
+		<footer>
+			<a href="https://www.facebook.com/">Like Us On<img src="assets/facebook_logo.jpg" width="50" height="50"	alt="Find us on Facebook" style="vertical-align: middle"> |</a> 
+			<a href="https://www.twitter.com/"><img src="assets/twitter_logo.jpg" width="50" height="50"alt="Find Us on Twitter" style="vertical-align: middle">FollowUs On</a>
+			<p>Derek O Brien - K00105572</p>
+		</footer>
+		<!-- end .container -->
+	</section>
+</body>
+</html>
